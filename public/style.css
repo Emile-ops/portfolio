@@ -1,0 +1,177 @@
+
+header {
+  background-color: white;           /* Fond blanc du header */
+  height: 60px;                      /* Hauteur fixe */
+  display: flex;                     /* Mise en page en flexbox */
+  align-items: center;              /* Centrage vertical du contenu */
+  padding: 0 20px;                   /* Espacement horizontal interne */
+}
+
+.menu-hamb {
+  cursor: pointer;                  /* Curseur "main" au survol */
+  display: flex;                    /* Flexbox verticale pour les barres */
+  flex-direction: column;          /* Les barres sont empilées verticalement */
+  justify-content: space-between;  /* Espacement égal entre les barres */
+  height: 24px;                     /* Hauteur du hamburger */
+  width: 30px;                      /* Largeur du hamburger */
+}
+
+.menu-hamb span {
+  display: block;                   /* Barres visibles comme blocs */
+  height: 3px;                      /* Épaisseur des barres */
+  background-color: black;         /* Couleur noire des barres */
+  border-radius: 3px;              /* Bords arrondis */
+}
+
+.menu-hamb span:nth-child(1) {
+  width: 100%;                      /* Pleine largeur pour la 1ère barre */
+}
+
+.menu-hamb span:nth-child(2) {
+  width: 80%;                       /* Largeur réduite pour effet stylé */
+}
+
+.menu-hamb span:nth-child(3) {
+  width: 60%;                       /* Encore plus courte pour un effet "menu" */
+}
+
+.container {
+  width: 100%;                      /* Prend toute la largeur */
+  min-height: 3rem;                 /* Hauteur minimale */
+  display: flex;                    /* Utilise flexbox */
+  flex-direction: column;          /* Aligne verticalement les enfants */
+  justify-content: center;         /* Centre verticalement */
+  align-items: center;             /* Centre horizontalement */
+  background-color: #ffffff;       /* Fond blanc */
+}
+
+.title {
+  font-size: 2rem;                  /* Grande taille de police */
+  color: black;                     /* Couleur du texte */
+  margin-bottom: 2rem;             /* Marge inférieure pour espacement */
+}
+
+.search-form {
+  position: relative;              /* Position de référence pour les éléments internes */
+  width: 1.75rem;                  /* Largeur compacte initiale */
+  height: 1.75rem;                 /* Hauteur compacte */
+  border-radius: 999px;            /* Forme parfaitement arrondie (cercle) */
+  background-color: rgb(255, 255, 255); /* Fond blanc */
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2); /* Ombre légère */
+  padding: 0.75rem;                /* Espacement interne */
+  margin: 0 0.5rem;                /* Marge horizontale */
+  transition: width 0.5s;          /* Animation fluide lors de l’agrandissement */
+}
+
+.search-input {
+  background-color: white;         /* Fond blanc */
+  border: none;                    /* Supprime la bordure */
+  outline: none;                   /* Supprime la bordure focus bleue */
+  width: 100%;                     /* Prend toute la largeur du parent */
+  height: 100%;                    /* Idem en hauteur */
+  border-radius: 999px;            /* Forme arrondie */
+  padding-left: 0;                 /* */
+  font-size: small;                /* Taille réduite du texte */
+  pointer-events: none;            /* Inactif au départ */
+}
+
+.search-button {
+  width: 3rem;                     /* Taille fixe du bouton */
+  height: 3rem;
+  border-radius: 999px;            /* Bouton rond */
+  background-color: #000000;       /* Fond noir */
+  position: absolute;              /* Positionné au centre du parent */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centre exact du parent */
+  cursor: pointer;                 /* Curseur main */
+  transition: all 0.5s;            /* Animation fluide */
+}
+
+.search-icon,
+.search-close {
+  position: absolute;              /* Positionnement libre dans le bouton */
+  font-size: 1.25rem;              /* Taille de l’icône */
+  color: white;                    /* Couleur blanche */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centrage parfait */
+}
+
+.search-close {
+  opacity: 0;                      /* Caché par défaut */
+}
+
+.active-search {
+  max-width: 100%;                 /* Empêche de dépasser le conteneur */
+  width: 20rem;                    /* Largeur élargie quand actif */
+}
+
+.active-search .search-button {
+  left: calc(100% - 2rem);         /* Déplace le bouton à droite dans la barre */
+}
+
+.active-search .search-input {
+  pointer-events: initial;         /* Rend le champ actif */
+}
+
+.active-search .search-close {
+  opacity: 1;                      /* Affiche l’icône de fermeture */
+}
+
+.active-search .search-icon {
+  opacity: 0;                      /* Cache l’icône de loupe */
+}
+
+.menu-bande-container {
+  max-width: 100%;                 /* Largeur totale autorisée */
+  max-height: 5rem;                /* Hauteur max (pour éviter débordement) */
+  background-color: white;         /* Fond blanc */
+  display: flex;                   /* Affichage en flexbox */
+  align-items: center;             /* Alignement vertical des items */
+  gap: 1rem;                       /* Espace horizontal entre items */
+  overflow-x: auto;                /* Scroll horizontal si trop d’éléments */
+  padding: 0.5rem;                 /* Espace intérieur */
+  justify-content: space-around;   /* Centre horizontalement tous les items */
+}
+
+.menu-item {
+  display: flex;                   /* Contenu vertical : image + texte */
+  flex-direction: column;         /* Aligne image au-dessus du texte */
+  align-items: center;            /* Centre horizontalement l’image et le texte */
+  text-decoration: none;          /* Supprime le soulignement du lien */
+  color: black;                   /* Texte noir */
+  min-width: 80px;                /* Largeur minimale pour éviter les écrasements */
+  padding: 0.5rem;                /* Espace intérieur */
+  background-color: #f8f8f8;      /* Fond gris clair */
+  border-radius: 10px;            /* Coins arrondis */
+  flex-shrink: 0;                 /* Empêche l’élément de se réduire en scroll */
+}
+
+.menu-item img {
+  width: 30px;                    /* Taille de l’image fixe */
+  height: 30px;
+  margin-bottom: 4px;             /* Espace entre l’image et le texte */
+}
+
+.menu-item span {
+  font-size: 14px;                /* Taille du texte */
+  text-align: center;             /* Centre le texte horizontalement */
+}
+
+.top-flop-bandeau {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f0f0f0;
+}
+
+.top-flop-item {
+  min-width: 100px;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
